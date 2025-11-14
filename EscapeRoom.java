@@ -44,6 +44,7 @@ public class EscapeRoom
     System.out.println("Welcome to EscapeRoom!");
     System.out.println("Get to the other side of the room, avoiding walls and invisible traps,");
     System.out.println("pick up all the prizes.\n");
+    System.out.println("The following are all valid commands: Commands: right, r, left, l, up, u, down, d, pickup, p, spring, replay (when you're done call replay to see final score and steps), q, quit");
     
     GameGUI game = new GameGUI();
     game.createBoard();
@@ -104,9 +105,11 @@ public class EscapeRoom
       }
       
       else if (cmd.equals("spring")) {
-        score += game.springTrap(1, 1);  //tries to spring trap, and changes score if trap is sprung (or deducts if otherwise)
-        System.out.println("Current score: " + score); //prints score
+          score += game.springTrap(0, 0);  //checks for trap at player's current location
+          System.out.println("Current score: " + score);
       }
+
+      
 
       //prize pickup
       else if (cmd.equals("pickup") || cmd.equals("p")) {
@@ -119,6 +122,7 @@ public class EscapeRoom
           System.out.println("steps=" + game.getSteps()); //prints steps
           score += game.replay();
           System.out.println("score=" + score); //prints score
+          System.out.println("The game has now been reset.");
           score = 0;
       }
 
