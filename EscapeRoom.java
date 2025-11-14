@@ -105,7 +105,7 @@ public class EscapeRoom
       }
       
       else if (cmd.equals("spring")) {
-          score += game.springTrap(0, 0);  //checks for trap at player's current location
+          score += game.springTrap(1, 0);  //checks for trap right next to the player's location
           System.out.println("Current score: " + score);
       }
 
